@@ -1,26 +1,42 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <tygr-header title="DS" />
+  <tygr-home />
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import tygrHeader from './components/Header.vue';
+import tygrHome from './components/Home.vue';
 
 export default {
   name: 'App',
   components: {
-    HelloWorld
+    tygrHeader,
+    tygrHome
   }
 }
 </script>
 
-<style>
+<style lang="scss">
+@import './styles/tokens.scss';
+@import './styles/mixins/breakpoints.scss';
+
+body {
+  background-color: $clr_neutral1;
+}
+
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+  font-family: $ff_fallback;
+  color: $clr_neutral10;
+  margin-top: $md4;
+  max-width: 100%;
+  margin: 0 auto;
+
+  @include bp2 {
+    max-width: 90%;
+  }
+
+  @include bp3 {
+    max-width: 80%;
+  }
 }
 </style>
